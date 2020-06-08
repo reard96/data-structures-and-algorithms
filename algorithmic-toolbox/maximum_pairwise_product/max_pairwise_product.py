@@ -1,7 +1,7 @@
 # python3
 
 
-# Not the most optimal solution, but the most compact
+# Not the optimal solution (we sort the whole list), but the most compact
 def max_pairwise_product(numbers):
     numbers.sort(reverse=True)
     return numbers[0] * numbers[1]
