@@ -16,7 +16,10 @@ def fibonacci_sum_last_digit(n):
     return (sumArray[-1] - 1) % 10
 
 def fibonacci_partial_sum(from_, to):
-    return ((fibonacci_sum_last_digit(to) + 10) - fibonacci_sum_last_digit(from_ - 1)) % 10
+    if from_ == 0:
+        return fibonacci_sum_last_digit(to)
+    else:
+        return ((fibonacci_sum_last_digit(to) + 10) - fibonacci_sum_last_digit(from_ - 1)) % 10
 
 
 if __name__ == '__main__':

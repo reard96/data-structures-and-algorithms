@@ -1,18 +1,20 @@
 # Uses python3
 from sys import stdin
 
-def fibonacci_sum_squares(n):
-    if n < 2:
+# Helper function
+def fibonacci_last_digit(n):
+    if n <= 1:
         return n
 
-    sumArray = [1, 1]
+    cache = [0, 1]
 
-    # Pisano period of 60
-    n = n % 60
-    for _ in range(n):
-        sumArray.append((sumArray[-1] ** 2 + sumArray[-2] ** 2) % 10)
+    for i in range(2, n+1):
+        cache.append((cache[i-1] + cache[i-2]) % 10)
 
-    return (sumArray[-1] - 1) % 10
+    return cache[n]
+
+def fibonacci_sum_squares(n):
+    return (fibonacci_last_digit(n % 60) * fibonacci_last_digit((n+1) % 60) % 10)
 
 if __name__ == '__main__':
     n = int(stdin.read())
