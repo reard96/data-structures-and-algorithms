@@ -1,20 +1,19 @@
 # Uses python3
 from sys import stdin
 
-def fibonacci_sum_squares_naive(n):
-    if n <= 1:
+def fibonacci_sum_squares(n):
+    if n < 2:
         return n
 
-    previous = 0
-    current  = 1
-    sum      = 1
+    sumArray = [1, 1]
 
-    for _ in range(n - 1):
-        previous, current = current, previous + current
-        sum += current * current
+    # Pisano period of 60
+    n = n % 60
+    for _ in range(n):
+        sumArray.append((sumArray[-1] ** 2 + sumArray[-2] ** 2) % 10)
 
-    return sum % 10
+    return (sumArray[-1] - 1) % 10
 
 if __name__ == '__main__':
     n = int(stdin.read())
-    print(fibonacci_sum_squares_naive(n))
+    print(fibonacci_sum_squares(n))

@@ -21,6 +21,6 @@ def get_fibonacci_huge(n, m):
     return currentMod
 
 if __name__ == '__main__':
-    input = sys.stdin.read();
+    input = sys.stdin.read()
     n, m = map(int, input.split())
     print(get_fibonacci_huge(n, m))
