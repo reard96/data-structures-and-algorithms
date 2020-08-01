@@ -4,7 +4,7 @@ import sys
 
 # helper function
 def is_greater_or_equal(a, b):
-    # sort of cheating but will turn them to strings to compare
+    # turn them to strings to concat
     return int(str(a) + str(b)) >= int(str(b) + str(a))
 
 def largest_number(a):
